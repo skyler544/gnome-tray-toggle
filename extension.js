@@ -7,7 +7,7 @@ import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 const TrayToggleButton = GObject.registerClass(
 class TrayToggleButton extends PanelMenu.Button {
     _init() {
-        super._init(0.0, 'Tray Toggle', false);
+        super._init(0.0, 'Tray Toggle', true);
 
         // State tracking
         this._trayVisible = true;
@@ -20,15 +20,21 @@ class TrayToggleButton extends PanelMenu.Button {
         });
 
         this.add_child(this._icon);
-
-        // Connect click handler
-        this.connect('button-press-event', this._onButtonPress.bind(this));
     }
 
-    _onButtonPress() {
+    vfunc_event(event) {
+        if (event.type() === Clutter.EventType.BUTTON_PRESS ||
+            event.type() === Clutter.EventType.TOUCH_BEGIN) {
+            this._toggleTray();
+            return Clutter.EVENT_STOP;
+        }
+
+        return Clutter.EVENT_PROPAGATE;
+    }
+
+    _toggleTray() {
         this._trayVisible = !this._trayVisible;
         this._updateTrayVisibility();
-        return Clutter.EVENT_PROPAGATE;
     }
 
     _updateTrayVisibility() {

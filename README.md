@@ -2,7 +2,7 @@
 
 A GNOME Shell extension that adds a toggle button to hide/show system tray application icons with smooth animations.
 
-![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-47%20|%2048%20|%2049-blue)
+![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-47%20|%2048%20|%2049%20|%2050-blue)
 ![License](https://img.shields.io/badge/license-GPLv3-green)
 
 ## Features
@@ -64,7 +64,7 @@ Visit [extensions.gnome.org](https://extensions.gnome.org/) and search for "Tray
 
 ## Compatibility
 
-- **GNOME Shell:** 47, 48, 49
+- **GNOME Shell:** 47, 48, 49, 50
 - **Ubuntu:** 25.10+ (Oracular Oriole)
 - **Tested on:** Ubuntu 25.10 with Wayland
 
