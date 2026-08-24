@@ -13,13 +13,23 @@ class TrayToggleButton extends PanelMenu.Button {
         this._trayVisible = true;
         this._hiddenActors = [];
 
-        // Create icon
+        // Create icon — invisible until hovered
         this._icon = new St.Icon({
-            icon_name: 'orientation-portrait-right-symbolic',
+            icon_name: 'orientation-portrait-left-symbolic',
             style_class: 'system-status-icon',
+            opacity: 0,
         });
 
         this.add_child(this._icon);
+
+        // Fade icon in/out on hover
+        this.connect('notify::hover', () => {
+            this._icon.ease({
+                opacity: this.hover ? 255 : 0,
+                duration: 150,
+                mode: Clutter.AnimationMode.EASE_OUT_QUAD,
+            });
+        });
     }
 
     vfunc_event(event) {
@@ -40,8 +50,8 @@ class TrayToggleButton extends PanelMenu.Button {
     _updateTrayVisibility() {
         // Animate icon change with a subtle rotation
         this._icon.ease({
-            rotation_angle_z: 360,
-            duration: 150,
+            rotation_angle_z: 0,
+            duration: 0,
             mode: Clutter.AnimationMode.EASE_OUT_QUAD,
             onComplete: () => {
                 this._icon.rotation_angle_z = 0;
