@@ -1,17 +1,8 @@
 {
   "name": "Tray Toggle",
   "description": "Toggle visibility of application tray icons with smooth slide animations. Adds a convenient button to hide/show AppIndicator icons while keeping system icons visible.",
-  "uuid": "tray-toggle@maciek",
-  "shell-version": [
-    "47",
-    "48",
-    "49",
-    "50"
-  ],
+  "uuid": "gnome-tray-toggle@skyler544",
+  "shell-version": ["50"],
   "version": 1,
-  "url": "https://github.com/szamski/gnome-tray-toggle",
-  "gettext-domain": "",
-  "donations": {
-    "github": "szamski"
-  }
+  "url": "https://github.com/skyler544/gnome-tray-toggle"
 }
